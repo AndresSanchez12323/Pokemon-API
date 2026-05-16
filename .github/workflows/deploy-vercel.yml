@@ -8,6 +8,9 @@ jobs:
   deploy:
     name: Deploy to Vercel
     runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
+      ACTIONS_STEP_DEBUG: 'true'
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -32,3 +35,4 @@ jobs:
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
           working-directory: frontend
           prod: true
+          debug: true
