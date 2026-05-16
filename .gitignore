@@ -1,0 +1,22 @@
+# Node
+node_modules/
+
+# PNPM
+.pnpm-store/
+
+# Python
+.venv/
+__pycache__/
+
+# Build
+dist/
+build/
+
+# Env
+.env
+
+# Logs
+*.log
+
+# VSCode
+.vscode/
