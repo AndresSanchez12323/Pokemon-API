@@ -274,7 +274,13 @@ export default async function handler(req, res) {
   }
 
   const pathParam = req.query.path || [];
-  const segments = Array.isArray(pathParam) ? pathParam : [pathParam];
+  let segments = [];
+  
+  if (Array.isArray(pathParam)) {
+    segments = pathParam;
+  } else if (typeof pathParam === 'string') {
+    segments = pathParam.split('/').filter(Boolean);
+  }
 
   if (segments.length === 0 || segments[0] === '') {
     res.status(200).json({
