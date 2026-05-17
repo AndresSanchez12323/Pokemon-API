@@ -1,6 +1,7 @@
 {
   "name": "pokemon-pokedex-frontend",
   "version": "1.0.0",
+  "homepage": "https://AndresSanchez12323.github.io/Pokemon-API",
   "description": "Frontend React para Pokédex - API Pokémon",
   "private": true,
   "packageManager": "pnpm@8.15.0",

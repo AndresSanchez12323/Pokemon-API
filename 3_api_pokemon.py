@@ -9,6 +9,7 @@ from flask import Flask, jsonify, request
 from flask_cors import CORS
 import math
 import requests
+import os
 
 app = Flask(__name__)
 CORS(app)
@@ -356,7 +357,11 @@ if __name__ == '__main__':
     print("API POKÉMON v2.0 - Todas las generaciones")
     print("=" * 60)
     print("Conectando a PokeAPI...")
-    print("Corriendo en http://127.0.0.1:5000")
+    port = int(os.environ.get('PORT', 5000))
+    host = os.environ.get('HOST', '0.0.0.0')
+    debug_mode = os.environ.get('FLASK_DEBUG', 'False').lower() in ('1', 'true', 'yes')
+
+    print(f"Corriendo en http://{host}:{port}")
     print("CORS habilitado para React frontend")
     print("=" * 60)
-    app.run(host='localhost', port=5000, debug=True)
+    app.run(host=host, port=port, debug=debug_mode)
